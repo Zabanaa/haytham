@@ -1,0 +1,21 @@
+version: "3.7"
+
+
+services:
+
+  flask:
+    build: ./flask
+    container_name: flask_prod
+    restart: always
+    expose:
+      - 8080
+    env_file:
+      - "./flask/.env"
+    command: uwsgi app.ini
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "9310:80"

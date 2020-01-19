@@ -1,0 +1,30 @@
+version: "3.7"
+
+
+services:
+
+  db:
+    restart: always
+    image: postgres:12
+    env_file:
+      - "./flask/.env"
+    volumes:
+      - ./postgres-data/postgres:/var/lib/postgresql/data
+    ports:
+      - "9876:5432"
+    container_name: db
+
+  flask:
+    build: ./flask
+    container_name: flask_dev
+    restart: always
+    ports:
+      - "9310:5000"
+    volumes:
+      - ./flask/:/app
+    env_file:
+      - "./flask/.env"
+    command: flask run --host 0.0.0.0
+    depends_on:
+      - db
+
