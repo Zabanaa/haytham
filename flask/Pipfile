@@ -11,6 +11,9 @@ neovim = "*"
 flask = "*"
 uwsgi = "*"
 pytest = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
