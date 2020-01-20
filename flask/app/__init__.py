@@ -20,6 +20,6 @@ def create_app(config_obj='Config'):
 
     @app.route('/')
     def index():
-        return "hello from barred"
+        return "Hello, thanks for using haytham"
 
     return app
