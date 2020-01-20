@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from app.example_blueprint.routes import example_blueprint
 
 
 def create_app(config_obj='Config'):
@@ -17,6 +18,7 @@ def create_app(config_obj='Config'):
             sys.exit("DB ERROR {}".format(e))
 
     migrate.init_app(app, db)
+    app.register_blueprint(example_blueprint)
 
     @app.route('/')
     def index():
