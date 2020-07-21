@@ -23,6 +23,7 @@ pytest-mock = "*"
 marshmallow = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
