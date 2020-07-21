@@ -16,6 +16,7 @@ def create_app(config_obj='Config'):
     from app.example_blueprint.routes import example_blueprint
 
     # this is where you would import cli commands if any
+    from commands import init_data, reset_db, lint, test
 
 
     with app.app_context():
@@ -28,6 +29,12 @@ def create_app(config_obj='Config'):
 
         # register all blueprints
         app.register_blueprint(example_blueprint)
+
+        # add cli commands
+        app.cli.add_command(init_data)
+        app.cli.add_command(reset_db)
+        app.cli.add_command(lint)
+        app.cli.add_command(test)
 
         # setup flask mail below
 
